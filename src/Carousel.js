@@ -15,8 +15,9 @@ export class Carousel extends Component {
 <div class="container">
    <div >
      <div class="appointment wow fadein" >
-   <h1>Accepting New Patients Call Now </h1>
-   </div>
+        <h1>Now Open and Accepting New Patients  Book appointment
+        </h1>
+      </div>
            <div class="row">
                 <div class="col-sm-8">
                   <div id="myCarousel" class="carousel slide" data-ride="carousel">
