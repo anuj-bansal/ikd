@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Router, Route, Link } from 'react-router'
+import { Router, Route, Link } from 'react-router-dom'
 import logo from './../images/IKDLogo.png';
 import './Navigation.css';
 import './../bootstrap.min.css';
 
 
-export class Navigationold extends Component {
+export class Navigation extends Component {
   render() {
     return (
     <div class="container"  className="nav">
@@ -19,7 +19,7 @@ export class Navigationold extends Component {
                 <a href="AboutUs" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us
                 </a>
                     <ul class="dropdown-menu">
-                        <li><a href="AboutUs">Our Dentist</a></li>
+                        <li><Link to="/AboutUs">Our Dentist</Link></li>
                         <li><a href="#">Our Office</a></li>
                         <li><a href="#">Location</a></li>
                     </ul>            
