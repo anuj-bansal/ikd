@@ -8,7 +8,6 @@ import './App.css';
 import './bootstrap.min.css';
 
 
-
 export class Carousel extends Component {
   render() {
     return (
@@ -21,16 +20,15 @@ export class Carousel extends Component {
            <div class="row">
                 <div class="col-sm-8">
                   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
+                    <ol class="carousel-indicators">
                       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                       <li data-target="#myCarousel" data-slide-to="1"></li>
                       <li data-target="#myCarousel" data-slide-to="2"></li>
                       <li data-target="#myCarousel" data-slide-to="3"></li>
                       <li data-target="#myCarousel" data-slide-to="4"></li>
-                      </ol>
+                    </ol>
 
-                  <div class="carousel-inner" role="listbox">
-
+                    <div class="carousel-inner" role="listbox">
                       <div class="item active">
                         <img src={img1}  />
                       </div>
@@ -50,7 +48,7 @@ export class Carousel extends Component {
                       <div class="item">
                       <img src={img5} />
                       </div>
-                   </div>
+                    </div>
 
                   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -63,8 +61,8 @@ export class Carousel extends Component {
                   </div>
                 </div>
                 <div class="col-sm-4">
-                      <div >
-                      <img src={img5} widht="400" height="400"/>
+                      <div>
+                        <img src={img5} widht="400" height="400"/>
                       </div>
                  </div>
              </div>
