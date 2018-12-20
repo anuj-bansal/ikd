@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router'
-import './App.css';
-import './bootstrap.min.css';
-import {Home} from './HomePage'; 
-import {AboutUs} from './Navigation/AboutUs';
+import App from './app/index';
 
-class App extends Component {
+class MainApp extends Component {
   render() {
-    return (
-      <div>
-        <Home/>
-        <Switch>
-          <Route path="/" component={Home}/>
-          <Route path="/foo" component={AboutUs}/>
-          <Route path="/AboutUs" component={AboutUs}/>
-        </Switch>
-        </div>
-        /*
+    return ( 
+      <App />
 
-*/
       /*
       <div className="App">
         <p>hi there</p>
@@ -42,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MainApp;
