@@ -5,7 +5,6 @@ import styles from './styles';
 class Topbar extends Component {
   
   render(){
-    console.log(styles);
     return(
       <div className="container-fluid" style={styles.topbarCont} >
         <div className="row text-center">

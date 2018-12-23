@@ -5,5 +5,8 @@ export default {
     width: 150,
     paddingLeft: 20,
     paddingRight: 20
+  },
+  resIcon: {
+    marginTop: 20,
   }
 }

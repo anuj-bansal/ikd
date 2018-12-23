@@ -26,10 +26,6 @@ class Navbar extends Component {
     const navToggler = "navbar-toggler ml-2"  + (this.state.isMobileMenuOn ? ' collapsed' : '');
     const navCollapse = "collapse navbar-collapse nav-content"  + (this.state.isMobileMenuOn ? ' show' : '');
 
-    NavItemsLeft.map( item =>{
-      console.log(item.children);
-    })
-
     return(
       <nav className=" navbar navbar-expand-lg navbar-light sticky-top bg-light main-nav">
         <div className="container " >
@@ -41,7 +37,7 @@ class Navbar extends Component {
                     return <NavItem  key={index} path={item.link} name={item.name} />
                   else{
                     return(
-                      <NavDropdown name={item.name}>
+                      <NavDropdown key={index} name={item.name}>
                         { item.children.map( (childItem, childIndex) => {
                             return <NavItem key={index+childIndex} path={childItem.link} name={childItem.name} child> </NavItem>    
                           })
@@ -56,12 +52,15 @@ class Navbar extends Component {
 
           <ul className="nav navbar-nav text-nowrap flex-row mx-auto order-1 order-lg-2">
             <li className="nav-item">
-              <a class="navbar-brand navbar-brand-centered" href="/" style={styles.logo}> <img className="img-thumbnail img-fluid d-inline-block" src={require('./../../assets/images/logo.png')} alt="IKD Logo"/> </a>
-
+              <a className="navbar-brand navbar-brand-centered" href="/" style={styles.logo}> <img className="img-thumbnail img-fluid d-inline-block" src={require('./../../assets/images/logo.png')} alt="IKD Logo"/> </a>
             </li>
-            <button className={navToggler} type="button" onClick={(e) => {this.showMobileMenu(e)}} data-toggle="collapse" data-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={this.state.isMobileMenuOn} aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
+
+            <div style={styles.resIcon}>
+              <button className={navToggler} type="button" onClick={(e) => {this.showMobileMenu(e)}} data-toggle="collapse" data-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={this.state.isMobileMenuOn} aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        
           </ul>
 
           <div className={navCollapse+ " order-3 order-md-3 justify-content-start" } >
