@@ -25,3 +25,12 @@ export const NavItemsRight= [
   { name: 'FAQs', link: '/faqs'},
   { name: 'Contact', link: '/contact-us'}
 ];
+
+export const QuickLinks= [
+  { name: 'Home', link: '/'},
+  { name: 'About Us', link: '/about'},
+  { name: 'Services', link: '/services'},
+  { name: 'Blog', link: '/blog'},
+  { name: 'FAQs', link: '/faqs'},
+  { name: 'Contact', link: '/contact-us'}
+];

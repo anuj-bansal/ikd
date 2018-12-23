@@ -9,8 +9,8 @@ class Navbar extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isMobileMenuOn: false
-    }
+      isMobileMenuOn: true
+    }   
   }
 
   showMobileMenu(e) {
@@ -23,8 +23,8 @@ class Navbar extends Component {
 
   render(){
 
-    const navToggler = "navbar-toggler ml-2"  + (this.state.isMobileMenuOn ? ' collapsed' : '');
-    const navCollapse = "collapse navbar-collapse nav-content"  + (this.state.isMobileMenuOn ? ' show' : '');
+    const navToggler = this.state.isMobileMenuOn ? 'navbar-toggler ml-2 collapsed' : 'navbar-toggler ml-2';
+    const navCollapse = this.state.isMobileMenuOn ? 'collapse navbar-collapse nav-content show' : 'collapse navbar-collapse nav-content';
 
     return(
       <nav className=" navbar navbar-expand-lg navbar-light sticky-top bg-light main-nav">

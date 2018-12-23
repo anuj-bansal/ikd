@@ -22,10 +22,10 @@ class Topbar extends Component {
             <p className="text-center" >
               <a href="tel:(419) 405-7171" style={styles.phone} >
                 <FontAwesome
-                    name='mobile-phone'
-                    size='2x'
-                    style={styles.icon}
-                  />
+                  name='mobile-phone'
+                  size='2x'
+                  style={styles.icon}
+                />
                 (419) 405-7171
               </a>
             </p>
