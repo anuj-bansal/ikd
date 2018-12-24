@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Home} from './scenes/Home'; 
+
+
+import Routes from './config/routes'; 
 import { BreakpointProvider, setDefaultBreakpoints } from 'react-socks';
 
 setDefaultBreakpoints([
@@ -17,7 +19,7 @@ export default class App extends Component {
   render() {
     return (
       <BreakpointProvider>
-        <Home />
+        <Routes />
       </BreakpointProvider>
     );
   }

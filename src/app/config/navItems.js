@@ -1,12 +1,19 @@
 export const NavItemsLeft= [
-  { name: 'Home', link: '/'},
+  { name: 'Home Test', link: '/'},
   { name: 'About Us', link: '/about'},
   { 
     name: 'Meet The Team', 
     link: '/meet-team',
     children: [
       { name: 'Meet Dr Sarah', link: '/meet-dr-sarah'},
-      { name: 'Meet Dr Ali ', link: '/meet-dr-ali'},
+      { 
+        name: 'Meet Dr Ali ', 
+        link: '/meet-dr-ali',
+        children: [
+          { name: 'Meet Dr Sarah', link: '/meet-dr-sarah'},
+          { name: 'Meet Dr Ali ', link: '/meet-dr-ali'},
+        ]
+      },
     ]
   },
   { 
@@ -23,7 +30,7 @@ export const NavItemsRight= [
   { name: 'Services', link: '/services'},
   { name: 'Blog', link: '/blog'},
   { name: 'FAQs', link: '/faqs'},
-  { name: 'Contact', link: '/contact-us'}
+  { name: 'Contact', link: '/contact'}
 ];
 
 export const QuickLinks= [
@@ -32,5 +39,5 @@ export const QuickLinks= [
   { name: 'Services', link: '/services'},
   { name: 'Blog', link: '/blog'},
   { name: 'FAQs', link: '/faqs'},
-  { name: 'Contact', link: '/contact-us'}
+  { name: 'Contact', link: '/contact'}
 ];

@@ -8,9 +8,9 @@ const Footer = () =>{
     <section className="footer" style={styles.container}id="footer">
       <div className="container-fluid">
         <div className='row'>
-          <div className="col-sm-4">
+          <div className="col-sm-4 text-center text-sm-left">
             <p>
-              <a className="navbar-brand navbar-brand-centered" href="/" style={styles.logo}> <img className="img-thumbnail img-fluid d-inline-block" src={require('./../../assets/images/logo.png')} alt="IKD Logo"/> </a>
+              <a className="navbar-brand navbar-brand-centered" href="/" style={styles.logo}> <img className="img-thumbnail img-fluid d-inline-block" src={require('./../../assets/images/issaquahkidsdentistry-logo.png')} alt="IKD Logo"/> </a>
             </p>
             <div style={styles.infoBox}>
               <p className="phone" style={styles.infoItem}>
@@ -43,17 +43,17 @@ const Footer = () =>{
             </div>
           
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-4 text-center text-sm-left">
             <h3 style={styles.heading}>Quick Links</h3>
-            <ul>
+            <ul className="list-inline">
               {
                 QuickLinks.map( (item, index) =>{
-                  return <li style={styles.link} key={index}> <a style={styles.link} href={item.link}>{item.name}</a></li>
+                  return <li className="text-center text-sm-left" style={styles.link} key={index}> <a style={styles.link} href={item.link}>{item.name}</a></li>
                 })
               }
             </ul>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-4 text-center text-sm-left">
             <h3 style={styles.heading}>Office Hours</h3>
             <p style={styles.txt}>Mon: 8 AM - 5 PM</p>
             <p style={styles.txt}>Tue: 8 AM - 5 PM</p>

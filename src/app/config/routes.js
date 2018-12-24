@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router'
-import {AboutUs} from './scenes/AboutUs';
+import { Topbar } from './../components/Topbar';
+import { Navbar } from './../components/Navbar';
+import { Footer } from './../components/Footer';
 
-var Router = require('react-router');
-var DefaultRoute = Router.DefaultRoute;
-var Route = Router.Route;
+import { Home } from './../scenes/Home';
+import { AboutUs }  from './../scenes/AboutUs';
+import { Contact } from './../scenes/Contact';
+import { NotFound } from './../scenes/NotFound';
 
-var routes = (
-  <Route name="app" path="/" handler={require('./app')}>
-    <DefaultRoute handler={require('./HomePage')}/>
-    <Route name="aboutus" handler={require('./')}/>
-  </Route>
-);
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+
+export default class Routes extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <Topbar />
+          <Navbar />
+            <Switch>
+              <Route exact path='/' component={Home}></Route>
+              <Route exact path='/about' component={AboutUs}></Route>
+              <Route exact path='/contact' component={Contact}></Route>
+              <Route component={NotFound}></Route>
+            </Switch>
+          <Footer />
+        </div>
+      </Router>
+    );
+  }
+}

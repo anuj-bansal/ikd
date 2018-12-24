@@ -9,7 +9,7 @@ class Navbar extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isMobileMenuOn: true
+      isMobileMenuOn: false
     }   
   }
 
@@ -52,7 +52,7 @@ class Navbar extends Component {
 
           <ul className="nav navbar-nav text-nowrap flex-row mx-auto order-1 order-lg-2">
             <li className="nav-item">
-              <a className="navbar-brand navbar-brand-centered" href="/" style={styles.logo}> <img className="img-thumbnail img-fluid d-inline-block" src={require('./../../assets/images/logo.png')} alt="IKD Logo"/> </a>
+              <a className="navbar-brand navbar-brand-centered" href="/" style={styles.logo}> <img className="img-thumbnail img-fluid d-inline-block" src={require('./../../assets/images/issaquahkidsdentistry-logo.png')} alt="IKD Logo"/> </a>
             </li>
 
             <div style={styles.resIcon}>

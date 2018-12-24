@@ -2,7 +2,7 @@ import gb from './../../assets/css/globals';
 export default {
   gb:gb,
   logo: {
-    width: 150,
+    width: 200,
     paddingLeft: 20,
     paddingRight: 20
   },

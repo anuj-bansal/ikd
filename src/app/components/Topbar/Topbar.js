@@ -15,18 +15,18 @@ class Topbar extends Component {
                   size='2x'
                   style={styles.icon}
                 />
-                10005 Fremont Pike, Perrysburg, OH 43551
+                85 NW Alder PI Suite B
               </p>
           </div>
           <div className="col-sm-12 col-md-4">
             <p className="text-center" >
-              <a href="tel:(419) 405-7171" style={styles.phone} >
+              <a href="tel:+1 425-657-0609" style={styles.phone} >
                 <FontAwesome
                   name='mobile-phone'
                   size='2x'
                   style={styles.icon}
                 />
-                (419) 405-7171
+                +1 425-657-0609
               </a>
             </p>
           </div>

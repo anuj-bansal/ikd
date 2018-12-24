@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const NavItem = props => {
   const pageURI = window.location.pathname+window.location.search;
@@ -8,10 +9,10 @@ export const NavItem = props => {
   if(!props.child){
     return(
       <li className={liClassName}>
-        <a href={props.path} className={aClassName}>
+        <Link to={props.path} className={aClassName} > 
           {props.name}
-          {(props.path === pageURI) ? (<span className="sr-only">(current)</span>) : ''}
-        </a>
+          {(props.path === pageURI) ? (<span className="sr-only">(current)</span>) : ''}  
+        </Link>
       </li>
     );
   }

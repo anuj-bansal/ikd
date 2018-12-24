@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import gb from './../assets/css/globals';
-import { Navbar }  from './../components/Navbar';
-import { Topbar } from './../components/Topbar';
+import { IKDMap } from './../components/IKDMap';
 import { HomeSlider } from './../components/HomeSlider';
-import { Footer } from './../components/Footer';
 
 export class Home extends Component {
   render() {
     return (
       <div className="main-container">
-        <Topbar />
-        <Navbar />
-        
         <div className="container-fluid h-100" style={styles.homeSliderCont}>
           <div className="row align-items-center h-100">
             <div className="m-0 p-0 col-sm-12 col-md-8">
@@ -48,15 +43,36 @@ export class Home extends Component {
           </div>
         </div>
 
-        <div className="container">
-          <div className="jumbotron text-center">
-            <h1>My First Bootstrap Page -  Hello </h1>
-            <p>Resize this responsive page to see the effect!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis sequi nesciunt esse sapiente aspernatur eveniet tempora qui aperiam aut! Eos culpa esse quisquam nobis nostrum debitis dicta quasi, tenetur nesciunt.</p>
+        <div className="container-fluid" style={{...styles.aboutCont, ...gb.yellowBack}}>
+          <div className="row" >
+            <div className="col-sm-4"  style={{ ...styles.aboutInfoItem, ...gb.blueBack }}>
+              <h3 className="text-center"><a  className="text-center" href="/" style={styles.heading}>Why We Are Different</a></h3>
+              {/* <h3 className="text-center"><a className="btn btn-primary" style={gb.ikdBlueBtn} href="/"> No Cavity Club</a></h3> */}
+            </div>
+            <div className="col-sm-4" style={{ ...styles.aboutInfoItem, ...gb.yellowBack }}>
+              <h3 className="text-center"><a  className="text-center" href="/" style={styles.heading}>New Patients</a></h3>
+              {/* <h3 className="text-center"><a className="btn btn-primary" style={gb.ikdBlueBtn} href="/"> No Cavity Club</a></h3> */}
+            </div>
+            <div className="col-sm-4" style={{ ...styles.aboutInfoItem, ...gb.blueBack }}> 
+              <h3 className="text-center"><a  className="text-center" href="/" style={styles.heading}>Our Office</a></h3>
+              {/* <h3 className="text-center"><a className="btn btn-primary" style={gb.ikdBlueBtn} href="/"> No Cavity Club</a></h3> */}
+            </div>
+            
           </div>
         </div>
 
-        <Footer />                   
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-12 text-center" style={{ background: '#f8f9fa', ...styles.partnerCont}}>
+              <img style={styles.partnerImg} src={require("./../assets/images/assoc-1.png")} alt="Our Partners"/>
+              <img style={styles.partnerImg} src={require("./../assets/images/assoc-2.png")} alt="Our Partners"/>
+              <img style={styles.partnerImg} src={require("./../assets/images/assoc-3.png")} alt="Our Partners"/>
+              <img style={styles.partnerImg} src={require("./../assets/images/assoc-4.png")} alt="Our Partners"/>
+              <img style={styles.partnerImg} src={require("./../assets/images/assoc-5.png")} alt="Our Partners"/>
+            </div>
+          </div>
+        </div>
+        <IKDMap />
       </div>
     );
   }
@@ -79,6 +95,17 @@ const styles = {
   featuresHead: { 
     color: gb.white,
     marginBottom: 20,
+  },
+  aboutInfoItem:{
+    padding: 10,
+  },
+  heading:{
+    color: gb.white,
+  },
+  partnerImg: {
+    padding: 10,
+  },
+  partnerCont:{
+    padding: 40,
   }
 }
-
