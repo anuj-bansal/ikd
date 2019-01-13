@@ -10,8 +10,8 @@ export const NavItemsLeft= [
         name: 'Meet Dr Ali ', 
         link: '/meet-dr-ali',
         children: [
-          { name: 'Meet Dr Sarah', link: '/meet-dr-sarah'},
-          { name: 'Meet Dr Ali ', link: '/meet-dr-ali'},
+          { name: 'Grand Sarah', link: '/grand-sarah'},
+          { name: 'Grand Ali ', link: '/grand-ali'},
         ]
       },
     ]

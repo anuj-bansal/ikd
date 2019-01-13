@@ -1,92 +1,202 @@
 import React, { Component } from 'react';
-import { NavItem } from './NavItem';
-import { NavItemsLeft, NavItemsRight } from './../../config/navItems'
-import  NavDropdown  from './NavDropdown';
-import styles from './styles';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
-class Navbar extends Component {
+  import { Link } from 'react-router-dom';
 
-  constructor(props){
+  import { NavItemsLeft, NavItemsRight } from './../../config/navItems'
+
+  import styles from './styles';
+
+class NavbarIKD extends Component {
+  constructor(props) {
     super(props);
-    this.state = {
-      isMobileMenuOn: false
-    }   
-  }
 
-  showMobileMenu(e) {
-    console.log('In Show mobile menu');
-    e.preventDefault();
-    this.setState(prevState => ({
-      isMobileMenuOn: !prevState.isMobileMenuOn
-    }));
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
 
   render(){
+    const pageURI = window.location.pathname+window.location.search;
 
-    const navToggler = this.state.isMobileMenuOn ? 'navbar-toggler ml-2 collapsed' : 'navbar-toggler ml-2';
-    const navCollapse = this.state.isMobileMenuOn ? 'collapse navbar-collapse nav-content show' : 'collapse navbar-collapse nav-content';
-
+    console.log('Navbar Left is: ', NavItemsLeft);
     return(
-      <nav className=" navbar navbar-expand-lg navbar-light sticky-top bg-light main-nav">
-        <div className="container " >
-          <div className={navCollapse+" order-2 justify-content-end"}>
-            <ul className="nav navbar-nav ">
-              {
-                NavItemsLeft.map( (item, index) =>{
-                  if(item.children === undefined)
-                    return <NavItem  key={index} path={item.link} name={item.name} />
-                  else{
-                    return(
-                      <NavDropdown key={index} name={item.name}>
-                        { item.children.map( (childItem, childIndex) => {
-                            return <NavItem key={index+childIndex} path={childItem.link} name={childItem.name} child> </NavItem>    
-                          })
-                        }
-                      </NavDropdown>
-                    );
-                  }
-                })
-              }
+        <Navbar className="main-nav sticky-top" color="light" light expand="lg" style={styles.navBack}>
+          <div className="container">
+            <Collapse className="nav-content order-2 justify-content-end" isOpen={this.state.isOpen} navbar>
+              <Nav  navbar>
+                {
+                  NavItemsLeft.map( (item, index) =>{
+                    if(item.children === undefined){
+                      console.log('navitem is undefined');
+                      return(
+                        <NavItem  key={index} >
+                          <NavLink tag={Link} to={item.link}  activeClassName="active">{item.name} </NavLink>
+                        </NavItem>
+                      )
+                    }
+                    else{
+                      return(
+                        <UncontrolledDropdown key={index} name={item.name} nav inNavbar>
+                          
+                            <DropdownToggle nav caret>
+                              {item.name}
+                            </DropdownToggle>
+                         
+                          <DropdownMenu right>
+                            { item.children.map( (childItem, childIndex) => {
+                                if(childItem.children === undefined )
+                                  return (
+                                    <DropdownItem>
+                                      <NavItem  key={index+childIndex} >
+                                        <NavLink tag={Link} className="nav-link" to={childItem.link} activeClassName="active">
+                                          {childItem.name}
+                                        </NavLink>
+                                      </NavItem>
+                                    </DropdownItem>
+                                  )
+                                else {
+                                  return(
+                                    <UncontrolledDropdown direction="right" key={index+childIndex} name={childItem.name} nav inNavbar>
+                                      <DropdownItem>
+                                        <DropdownToggle  nav caret>
+                                          {childItem.name}
+                                        </DropdownToggle>
+                                      </DropdownItem>
+                                      
+                                      <DropdownMenu right>
+                                        { 
+                                          childItem.children.map( (grandChild, grandChildIndex ) => { 
+                                            return(
+                                              <DropdownItem>
+                                                <NavItem  key={childIndex+grandChildIndex} >
+                                                  <NavLink tag={Link} className="nav-link" to={grandChild.link} activeClassName="active">
+                                                    {grandChild.name}
+                                                  </NavLink>
+                                                </NavItem>
+                                              </DropdownItem>     
+                                            );
+                                          })
+                                        }
+                                      </DropdownMenu>
+
+                                    </UncontrolledDropdown>
+                                  )
+                                  
+                                 }  
+                              })
+                            }
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                      );
+                    }
+                  })
+                }
+              </Nav>
+            </Collapse>
+
+            <ul class="nav navbar-nav text-nowrap flex-row mx-auto order-1 order-lg-2">
+              <li className="nav-item">
+                <a className="navbar-brand navbar-brand-centered ikd-logo" href="/" style={styles.logo}> <img className="img-thumbnail img-fluid d-inline-block" src={require('./../../assets/images/issaquahkidsdentistry-logo.png')} alt="IKD Logo"/> </a>
+              </li>
+              <div style={styles.resIcon}>
+                <NavbarToggler onClick={this.toggle} />
+              </div>
             </ul>
+
+
+            <Collapse className="nav-content order-3 order-md-3 justify-content-start" isOpen={this.state.isOpen} navbar>
+            <Nav  navbar>
+                {
+                  NavItemsRight.map( (item, index) =>{
+                    if(item.children === undefined){
+                      console.log('navitem is undefined');
+                      return(
+                        <NavItem  key={index} >
+                          <NavLink tag={Link} to={item.link}  activeClassName="active">{item.name} </NavLink>
+                        </NavItem>
+                      )
+                    }
+                    else{
+                      return(
+                        <UncontrolledDropdown key={index} name={item.name} nav inNavbar>
+                          
+                            <DropdownToggle nav caret>
+                              {item.name}
+                            </DropdownToggle>
+                         
+                          <DropdownMenu right>
+                            { item.children.map( (childItem, childIndex) => {
+                                if(childItem.children === undefined )
+                                  return (
+                                    <DropdownItem>
+                                      <NavItem  key={index+childIndex} >
+                                        <NavLink tag={Link} className="nav-link" to={childItem.link} activeClassName="active">
+                                          {childItem.name}
+                                        </NavLink>
+                                      </NavItem>
+                                    </DropdownItem>
+                                  )
+                                else {
+                                  return(
+                                    <UncontrolledDropdown direction="right" key={index+childIndex} name={childItem.name} nav inNavbar>
+                                      <DropdownItem>
+                                        <DropdownToggle  nav caret>
+                                          {childItem.name}
+                                        </DropdownToggle>
+                                      </DropdownItem>
+                                      
+                                      <DropdownMenu right>
+                                        { 
+                                          childItem.children.map( (grandChild, grandChildIndex ) => { 
+                                            return(
+                                              <DropdownItem>
+                                                <NavItem  key={childIndex+grandChildIndex} >
+                                                  <NavLink tag={Link} className="nav-link" to={grandChild.link} activeClassName="active">
+                                                    {grandChild.name}
+                                                  </NavLink>
+                                                </NavItem>
+                                              </DropdownItem>     
+                                            );
+                                          })
+                                        }
+                                      </DropdownMenu>
+
+                                    </UncontrolledDropdown>
+                                  )
+                                  
+                                 }  
+                              })
+                            }
+                          </DropdownMenu>
+                        </UncontrolledDropdown>
+                      );
+                    }
+                  })
+                }
+              </Nav>
+            </Collapse>
           </div>
-
-          <ul className="nav navbar-nav text-nowrap flex-row mx-auto order-1 order-lg-2">
-            <li className="nav-item">
-              <a className="navbar-brand navbar-brand-centered" href="/" style={styles.logo}> <img className="img-thumbnail img-fluid d-inline-block" src={require('./../../assets/images/issaquahkidsdentistry-logo.png')} alt="IKD Logo"/> </a>
-            </li>
-
-            <div style={styles.resIcon}>
-              <button className={navToggler} type="button" onClick={(e) => {this.showMobileMenu(e)}} data-toggle="collapse" data-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={this.state.isMobileMenuOn} aria-label="Toggle navigation">
-                  <span className="navbar-toggler-icon"></span>
-                </button>
-            </div>
-        
-          </ul>
-
-          <div className={navCollapse+ " order-3 order-md-3 justify-content-start" } >
-            <ul className="nav navbar-nav">
-              {
-                NavItemsRight.map( (item, index) =>{
-                  if(item.children === undefined)
-                    return <NavItem  key={index} path={item.link} name={item.name} />
-                  else{
-                    return(
-                      <NavDropdown name={item.name}>
-                        { item.children.map( (childItem, childIndex) => {
-                            return <NavItem key={index+childIndex} path={childItem.link} name={childItem.name} child> </NavItem>    
-                          })
-                        }
-                      </NavDropdown>
-                    );
-                  }
-                })
-              }
-            </ul>
-          </div>
-        </div>
-      </nav>
-      );
+        </Navbar>
+    );
   }
 }
 
-export default Navbar;
+export default NavbarIKD;

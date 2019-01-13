@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+import NavbarIKD from './Navbar';
 import styles from './styles';
 
-export { Navbar, styles };
+export { styles, NavbarIKD };

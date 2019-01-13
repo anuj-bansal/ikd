@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Topbar } from './../components/Topbar';
-import { Navbar } from './../components/Navbar';
+import { NavbarIKD } from './../components/Navbar';
+import { NavbarBackup } from './../components/Navbar.backup';
 import { Footer } from './../components/Footer';
 
 import { Home } from './../scenes/Home';
@@ -19,8 +20,8 @@ export default class Routes extends Component {
     return (
       <Router>
         <div>
+          <NavbarIKD />
           <Topbar />
-          <Navbar />
             <Switch>
               <Route exact path='/' component={Home}></Route>
               <Route exact path='/about' component={AboutUs}></Route>

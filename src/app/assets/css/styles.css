@@ -15,11 +15,59 @@ code {
     monospace;
 }
 
-
 .ikd-yellow{
   background-color: #f0da48 !important;
 }
 
 .ikd-blue{
   background-color: #3dbdf9 !important;
+}
+
+.main-nav{
+  background-color: transparent !important;
+}
+
+/* Multi Level Navbar Styling */
+
+/* .navbar-nav li:hover > ul.dropdown-menu {
+  display: block;
+} */
+.dropdown-submenu {
+  position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top:0;
+  left:100%;
+  margin-top:-6px;
+}
+
+/* rotate caret on hover */
+/* .dropdown-menu > li > a:hover:after {
+  text-decoration: underline;
+  transform: rotate(-90deg);
+}  */
+
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+  .main-container{
+    margin-top: -20px !important;
+  }
+
+  .main-nav .container {
+    height: 60px !important;
+  }
+
+  .main-nav .ikd-logo{
+    margin-top: 30px !important;
+  }
+}
+
+/* Below 992 */
+
+@media (max-width: 991px) {
+  .main-nav {
+    background: #f8f9fa !important;
+  }
 }
